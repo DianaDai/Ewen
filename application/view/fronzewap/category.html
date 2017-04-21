@@ -1,0 +1,57 @@
+<!--{template header}-->
+<!--{template searchinput}-->
+  <section class="sec-result">
+ <div class="ui-tab" id="tab1">
+    <ul class="ui-tab-nav ui-border-b">
+         <li >
+        <a href="{url category/view/$cid/all}">全部问题</a>
+        </li>
+          <li <!--{if 6==$status}-->class="current"<!--{/if}--> >
+     <a class="recommand" href="{url category/view/$cid/6}">推荐问题</a>
+        </li>
+          <li <!--{if 4==$status}-->class="current"<!--{/if}--> >
+       <a href="{url category/view/$cid/4}">悬赏问题</a>
+        </li>
+          <li <!--{if 1==$status}-->class="current"<!--{/if}--> >
+      <a href="{url category/view/$cid/1}">待解决</a>
+        </li>
+          <li <!--{if 2==$status}-->class="current"<!--{/if}--> >
+       <a href="{url category/view/$cid/2}">已解决</a>
+        </li>
+        
+      
+    </ul>
+    <ul class="ui-tab-content" style="width:100%">
+        <li>
+        
+        <ul class="ui-list ui-border-tb">
+           <!--{loop $questionlist $question}-->
+    <li class="ui-border-t" onclick="window.location.href='{url question/view/$question['id']}'">
+        <div class="ui-avatar">
+            <span style="background-image:url({$question['avatar']})"></span>
+        </div>
+        <div class="ui-list-info">
+            <h4 class="ui-nowrap"><a class="ui-txt-default" href="{url question/view/$question['id']}">{$question['title']}</a></h4>
+           
+        </div>
+    </li>
+      <!--{/loop}-->
+</ul>
+        
+        </li>
+       
+        
+    </ul>
+</div>
+</section>
+<section class="fixed-bar" id="fixed-bar">
+    <div class="bar-zhezao">
+
+    </div>
+    <div class="ui-row-flex ui-whitespace ui-row-flex-ver bar-items">
+   
+        <div class="ui-col"><i class="ui-icon-home"></i></div>
+        <div class="ui-col"><i class="ui-icon-gototop"></i></div>
+    </div>
+</section>
+<!--{template footer}-->

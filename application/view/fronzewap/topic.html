@@ -1,0 +1,46 @@
+<!--{template header}-->
+
+<section class="ui-container ">
+
+    <section class="article-jingxuan ui-panel">
+      
+        <ul class="ui-list ui-list-link ui-border-tb">
+           <!--{loop $topiclist $index $topic}-->      
+            <li class="ui-border-t" onclick="window.location.href='{url topic/getone/$topic['id']}'">
+                <div class="ui-list-img ">
+
+                 {eval $indexx=strstr($topic['image'],'http');}
+
+                       {if $indexx>=0 }
+                         <span style="background-image:url({$topic['image']})"></span>
+                        {else}
+                          <span style="background-image:url({SITE_URL}{$topic['image']})" class="ui-tag-s-hot"></span>
+                           {/if}
+                 
+                </div>
+                <div class="ui-list-info">
+                    <h4 class="ui-nowrap"><a class="ui-txt-default" href="{url topic/getone/$topic['id']}">{$topic['title']}</a></h4>
+                    <p class="ui-nowrap">
+                    {eval echo cutstr(strip_tags(str_replace('&nbsp;','',$topic['describtion'])),110,'...');}
+                    </p>
+                </div>
+            </li>
+             <!--{/loop}-->
+           
+        </ul>
+    </section>
+  
+    <div class="pages" style="margin-bottom:15px;">{$departstr}</div>
+<section class="fixed-bar">
+    <div class="bar-zhezao">
+
+    </div>
+    <div class="ui-row-flex ui-whitespace ui-row-flex-ver bar-items">
+        
+        <div class="ui-col"><i class="ui-icon-home"></i></div>
+        <div class="ui-col"><i class="ui-icon-gototop"></i></div>
+    </div>
+</section>
+
+</section>
+<!--{template footer}-->
